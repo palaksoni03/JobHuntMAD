@@ -37,7 +37,7 @@ public class Register extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),Login.class));
 
     }
-    // Register the user in firebase.
+        // Register the user in firebase.
     public void Register(View view) {
         String fullname = fname.getText().toString();
         String emailid = eid.getText().toString().trim();
@@ -65,7 +65,7 @@ public class Register extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(Register.this,e.getMessage(),Toast.LENGTH_LONG).show();
+              Toast.makeText(Register.this,e.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
 
