@@ -1,126 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_margin="20dp"
     android:layout_height="match_parent"
     tools:context=".Register">
-    <Button
-        android:id="@+id/back"
-        android:onClick="Back"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/arrow_back"
-        android:layout_gravity="left"
-        tools:ignore="UsingOnClickInXml" />
 
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_margin="20dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-            <LinearLayout
+            android:layout_height="50dp"
+            android:drawableLeft="@drawable/user"
+            android:drawablePadding="10dp"
+            android:background="@drawable/edit_background"
+            android:hint="Name"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/email"
+            android:background="@drawable/edit_background"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/name"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:hint="Email"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/password"
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/email"
+            android:background="@drawable/edit_background"
+            android:layout_marginTop="15dp"
+            android:drawableLeft="@drawable/ic_password"
+            android:drawablePadding="10dp"
+            android:hint="Password"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/cpassword"
+            android:background="@drawable/edit_background"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:layout_below="@+id/password"
+            android:drawableLeft="@drawable/ic_password"
+            android:drawablePadding="10dp"
+
+            android:hint="Confirm Password"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/phoneno"
+            android:layout_width="match_parent"
+            android:background="@drawable/edit_background"
+            android:layout_marginTop="15dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/cpassword"
+            android:drawableLeft="@drawable/ic_phonenumber"
+            android:drawablePadding="10dp"
+            android:hint="Phone number"
+            android:paddingLeft="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/applicant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical">
+                android:text="Register as Applicant" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="10dp"
-                    android:text="APPLICANT REGISTER"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
+            <CheckBox
+                android:id="@+id/recruiter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/applicant"
+                android:gravity="center"
+                android:text="Register as Recruiter" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="267dp"
-                    android:layout_height="145dp"
-                    app:srcCompat="@drawable/user" />
+        </RelativeLayout>
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_below="@+id/recruiter"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_toLeftOf="@+id/recruiter"
+            android:onClick="Register"
+            android:background="@drawable/button_background"
+            android:text="register" />
+    </LinearLayout>
 
-                <EditText
-                    android:id="@+id/aprname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Applicant Full Name"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/apremailid"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Email Id"
-                    android:inputType="textEmailAddress" />
-
-                <EditText
-                    android:id="@+id/aprpassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:hint="password"
-                    android:inputType="textPassword" />
-
-                <EditText
-                    android:id="@+id/aprcpw"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Confirm Password"
-                    android:inputType="textPassword" />
-
-                <EditText
-                    android:id="@+id/aprgender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:hint="Gender"
-                    android:inputType="text" />
-
-                <EditText
-                    android:id="@+id/aprphoneno"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Phone Number"
-                    android:inputType="number" />
-
-                <Button
-                    android:id="@+id/apregister"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:onClick="ApplicantRegister"
-                    android:text="Register" />
-
-                <TextView
-                    android:id="@+id/rlogin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:longClickable="true"
-                    android:onClick="RedirectToApplicant"
-                    android:text="Already Register?? Login"
-                    android:textSize="25dp" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+</ScrollView>

@@ -1,52 +1,26 @@
 package com.example.jobhunt.Model;
 
 public class Data {
-    String title;
-    String description;
-    String skill;
-    String salary;
+
     String id;
+    String fullname;
+    String email;
+    String password;
+    String phoneno;
     String date;
+    int UserTypes;
 
-    public Data(String title, String description, String skill, String salary, String id, String date) {
-        this.title = title;
-        this.description = description;
-        this.skill = skill;
-        this.salary = salary;
+    public Data() {
+    }
+
+    public Data(String id, String fullname, String email, String password, String phoneno, String date, int userTypes) {
         this.id = id;
+        this.fullname = fullname;
+        this.email = email;
+        this.password = password;
+        this.phoneno = phoneno;
         this.date = date;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getSkill() {
-        return skill;
-    }
-
-    public void setSkill(String skill) {
-        this.skill = skill;
-    }
-
-    public String getSalary() {
-        return salary;
-    }
-
-    public void setSalary(String salary) {
-        this.salary = salary;
+        UserTypes = userTypes;
     }
 
     public String getId() {
@@ -57,11 +31,51 @@ public class Data {
         this.id = id;
     }
 
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPhoneno() {
+        return phoneno;
+    }
+
+    public void setPhoneno(String phoneno) {
+        this.phoneno = phoneno;
+    }
+
     public String getDate() {
         return date;
     }
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public int getUserTypes() {
+        return UserTypes;
+    }
+
+    public void setUserTypes(int userTypes) {
+        UserTypes = userTypes;
     }
 }
