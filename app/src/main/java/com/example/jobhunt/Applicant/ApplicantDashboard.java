@@ -44,12 +44,9 @@ public class ApplicantDashboard extends AppCompatActivity {
     FirebaseAuth auth;
     RecyclerView recyclerView;
     private DatabaseReference mJob,mDatabase;
-    String phone_no,Company,name,JobProfile,job_Decription,expduration,edu_dec,id;
+    String phone_no,Company,name,JobProfile,job_Decription,expduration,edu_dec,id,email_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        getSupportActionBar().setTitle("Applicant Dashboard");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_applicant_dashboard);
         recyclerView = findViewById(R.id.Aprecview);
@@ -70,7 +67,6 @@ public class ApplicantDashboard extends AppCompatActivity {
                 holder.skill.setText(model.getSkill());
                 holder.salary.setText(model.getSalary());
                 holder.date.setText("posted job :\t"+model.getDate());
-                holder.pushid.setText(getRef(position).getKey());
 
                 mDatabase = FirebaseDatabase.getInstance().getReference();
                 ValueEventListener postListener = new ValueEventListener() {
@@ -78,6 +74,7 @@ public class ApplicantDashboard extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         name = snapshot.child("User").child(FirebaseAuth.getInstance().getUid()).child("fullname").getValue(String.class);
                         phone_no = snapshot.child("User").child(FirebaseAuth.getInstance().getUid()).child("phoneno").getValue(String.class);
+                        email_id = snapshot.child("User").child(FirebaseAuth.getInstance().getUid()).child("email").getValue(String.class);
                         Company = snapshot.child("User").child(FirebaseAuth.getInstance().getUid()).child("CompanyName").getValue(String.class);
 
                         JobProfile = snapshot.child("User").child(FirebaseAuth.getInstance().getUid()).child("Profile").getValue(String.class);
@@ -129,12 +126,6 @@ public class ApplicantDashboard extends AppCompatActivity {
                                 Toast.makeText(holder.title.getContext(),"Error while updating",Toast.LENGTH_LONG).show();
                             }
                         });
-                        FirebaseDatabase.getInstance().getReference("Save").child(model.getId()).child(auth.getUid()).updateChildren(rap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(holder.title.getContext(),"Update data on Firebase Save",Toast.LENGTH_LONG).show();
-                            }
-                        });
                     }
                 });
                 holder.btnApply.setOnClickListener(new View.OnClickListener() {
@@ -163,6 +154,7 @@ public class ApplicantDashboard extends AppCompatActivity {
 
                         rap.put("fullname",name);
                         rap.put("phoneno",phone_no);
+                        rap.put("email",email_id);
                         rap.put("JobProfile",JobProfile);
                         rap.put("CompanyName", Company);
                         rap.put("JobDescription",job_Decription);
@@ -173,7 +165,7 @@ public class ApplicantDashboard extends AppCompatActivity {
                         FirebaseDatabase.getInstance().getReference().child("Applied Status").child(auth.getUid()).child(getRef(position).getKey()).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(holder.title.getContext(),"data is updated",Toast.LENGTH_LONG).show();
+
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -185,7 +177,7 @@ public class ApplicantDashboard extends AppCompatActivity {
                         FirebaseDatabase.getInstance().getReference("Applied").child(model.getId()).child(auth.getUid()).updateChildren(rap).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(holder.title.getContext(),"Update data on Firebase Save",Toast.LENGTH_LONG).show();
+                                Toast.makeText(holder.title.getContext(),"Applied Job Successfully",Toast.LENGTH_LONG).show();
                             }
                         });
                     }
@@ -202,6 +194,8 @@ public class ApplicantDashboard extends AppCompatActivity {
         } ;
         firebaseRecyclerAdapter.startListening();
         recyclerView.setAdapter(firebaseRecyclerAdapter);
+
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

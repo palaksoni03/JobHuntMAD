@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Company Name"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#F4511E"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
@@ -110,9 +110,49 @@
                 android:textColor="#040404"
                 android:layout_below="@id/applicantemail"
                 android:layout_marginLeft="10dp"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/applicantedu_dec"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#808080"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Experience" />
+                    <TextView
+                        android:id="@+id/profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="profile" />
+                    <TextView
+                        android:id="@+id/CompanyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CompanyName" />
+                    <TextView
+                        android:id="@+id/JobDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="JobDescription" />
+                    <TextView
+                        android:id="@+id/Experience"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Experience" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
 
 
         </RelativeLayout>
+
 
     </LinearLayout>
     <LinearLayout
@@ -123,7 +163,6 @@
             android:layout_width="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:text="Accept"
             android:id="@+id/acceptjob"/>
@@ -133,7 +172,6 @@
             android:layout_height="wrap_content"
             android:text="Reject"
             android:layout_margin="10dp"
-            android:backgroundTint="@color/bgBottomNavigation"
             android:layout_weight="1"
             android:id="@+id/rejectjob"/>
     </LinearLayout>

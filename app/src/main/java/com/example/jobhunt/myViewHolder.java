@@ -15,7 +15,6 @@ public class myViewHolder extends RecyclerView.ViewHolder{
     public TextView skill;
     public TextView salary;
     public TextView date;
-    public TextView pushid;
     public Button btnApply;
     public Button btnSave;
     public myViewHolder(@NonNull View itemView) {
@@ -27,6 +26,5 @@ public class myViewHolder extends RecyclerView.ViewHolder{
         date = itemView.findViewById(R.id.datetxt);
         btnApply = itemView.findViewById(R.id.applybtn);
         btnSave = itemView.findViewById(R.id.savebtn);
-        pushid = itemView.findViewById(R.id.pushid);
     }
 }

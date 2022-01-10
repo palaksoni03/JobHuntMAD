@@ -30,9 +30,6 @@ public class SavedJob extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        getSupportActionBar().setTitle("Saved Jobs");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_job);
         recyclerView = findViewById(R.id.Aprvsavejob);

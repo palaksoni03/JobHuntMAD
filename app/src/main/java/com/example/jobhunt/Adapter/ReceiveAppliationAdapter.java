@@ -44,7 +44,11 @@ public class ReceiveAppliationAdapter extends FirebaseRecyclerAdapter<ReceiveApp
         holder.applicantname.setText(model.getFullname());
         holder.applicantphoneno.setText(model.getPhoneno());
         holder.applicantemail.setText(model.getEmail());
-        holder.applicantedu.setText(model.getEdu_des());
+        holder.applicantedu.setText(model.getEducationDec());
+        holder.profile.setText(model.getProfile());
+        holder.CompanyName.setText(model.getCompany());
+        holder.JobDescription.setText(model.getJobDescription());
+        holder.Experience.setText(model.getExperience());
         holder.Accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +105,7 @@ public class ReceiveAppliationAdapter extends FirebaseRecyclerAdapter<ReceiveApp
     public class myViewHolder extends RecyclerView.ViewHolder{
 
         TextView Company,city,jobtitle,des,applicantname,applicantphoneno,
-                applicantemail,applicantedu;
+                applicantemail,applicantedu,profile,CompanyName,JobDescription,Experience ;
         Button Accept,Reject;
 
         public myViewHolder(@NonNull View itemView) {
@@ -114,6 +118,10 @@ public class ReceiveAppliationAdapter extends FirebaseRecyclerAdapter<ReceiveApp
             applicantphoneno = itemView.findViewById(R.id.applicantphoneno);
             applicantemail = itemView.findViewById(R.id.applicantemail);
             applicantedu = itemView.findViewById(R.id.applicantedu_dec);
+            profile = itemView.findViewById(R.id.profile);
+            CompanyName = itemView.findViewById(R.id.CompanyName);
+            JobDescription = itemView.findViewById(R.id.JobDescription);
+            Experience = itemView.findViewById(R.id.Experience);
             Accept = itemView.findViewById(R.id.acceptjob);
             Reject = itemView.findViewById(R.id.rejectjob);
 

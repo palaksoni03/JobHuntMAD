@@ -30,7 +30,6 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Data, UserAdapter.myVie
     }
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Data model) {
-        holder.id.setText(model.getId());
         holder.fullname.setText(model.getFullname());
         holder.email.setText(model.getEmail());
         holder.phoneno.setText(model.getPhoneno());
@@ -38,7 +37,7 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Data, UserAdapter.myVie
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(holder.id.getContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder(holder.fullname.getContext());
                 builder.setTitle("Are you sure");
                 builder.setMessage("Deleted data cann't be undo");
                 builder.setMessage("deleted data cann't be undo");
@@ -65,11 +64,10 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Data, UserAdapter.myVie
         return new UserAdapter.myViewHolder(view);
     }
     public class myViewHolder extends RecyclerView.ViewHolder{
-        TextView id, fullname, email,phoneno ,date;
+        TextView  fullname, email,phoneno ,date;
         Button delete;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            id = itemView.findViewById(R.id.idap);
             fullname = itemView.findViewById(R.id.fullnameap);
             email = itemView.findViewById(R.id.emailap);
             phoneno = itemView.findViewById(R.id.phonenoap);

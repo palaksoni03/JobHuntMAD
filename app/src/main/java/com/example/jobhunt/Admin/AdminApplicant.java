@@ -28,9 +28,6 @@ public class AdminApplicant extends AppCompatActivity {
     private DatabaseReference mJobPost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        getSupportActionBar().setTitle("Applicants");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_applicant);
         recyclerView = findViewById(R.id.rvaa);

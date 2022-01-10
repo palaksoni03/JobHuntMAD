@@ -3,7 +3,6 @@ package com.example.jobhunt.Applicant;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,12 +36,8 @@ public class Profile extends AppCompatActivity {
     ImageButton imageButton;
     TextView jobprofile,company,jobDescription,expDuration,name,phoneno,proemail,eduDec;
     DatabaseReference mDatabase;
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        getSupportActionBar().setTitle("My Profile");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         imageButton = findViewById(R.id.imageButton4);

@@ -13,14 +13,20 @@ public class ReceiveApplicationData {
     String salary;
     String company;
     String city;
-    String edu_des;
+    String EducationDec;
     String uid;
     String pushid;
+    String profile;
+    String CompanyName;
+    String JobDescription;
+    int Experience;
+
+
 
     public ReceiveApplicationData() {
     }
 
-    public ReceiveApplicationData(String fullname, String email, String password, String phoneno, String date, String title, String description, String skill, String salary, String company, String city, String edu_des, String uid, String pushid) {
+    public ReceiveApplicationData(String fullname, String email, String password, String phoneno, String date, String title, String description, String skill, String salary, String company, String city, String educationDec, String uid, String pushid, String profile, String companyName, String jobDescription, int experience) {
         this.fullname = fullname;
         this.email = email;
         this.password = password;
@@ -32,9 +38,53 @@ public class ReceiveApplicationData {
         this.salary = salary;
         this.company = company;
         this.city = city;
-        this.edu_des = edu_des;
+        EducationDec = educationDec;
         this.uid = uid;
         this.pushid = pushid;
+        this.profile = profile;
+        CompanyName = companyName;
+        JobDescription = jobDescription;
+        Experience = experience;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
+
+    public String getCompanyName() {
+        return CompanyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        CompanyName = companyName;
+    }
+
+    public String getJobDescription() {
+        return JobDescription;
+    }
+
+    public void setJobDescription(String jobDescription) {
+        JobDescription = jobDescription;
+    }
+
+    public int getExperience() {
+        return Experience;
+    }
+
+    public void setExperience(int experience) {
+        Experience = experience;
+    }
+
+    public String getEducationDec() {
+        return EducationDec;
+    }
+
+    public void setEducationDec(String educationDec) {
+        EducationDec = educationDec;
     }
 
     public String getPushid() {
@@ -53,13 +103,6 @@ public class ReceiveApplicationData {
         this.uid = uid;
     }
 
-    public String getEdu_des() {
-        return edu_des;
-    }
-
-    public void setEdu_des(String edu_des) {
-        this.edu_des = edu_des;
-    }
 
     public String getFullname() {
         return fullname;

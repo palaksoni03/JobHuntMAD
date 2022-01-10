@@ -37,9 +37,6 @@ public class InsertJobPostActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        getSupportActionBar().setTitle("Post Job");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_job_post);
         auth = FirebaseAuth.getInstance();
@@ -98,11 +95,10 @@ public class InsertJobPostActivity extends AppCompatActivity {
 
                 String id = mJobPost.push().getKey();
                 String date = DateFormat.getDateInstance().format(new Date());
-                PostJobData postJobData = new PostJobData(title,description,skill,salary, auth.getUid(), date,id,company,city,"Processing");
+                PostJobData postJobData = new PostJobData(title,description,skill,salary, auth.getUid(), date,id,company,"processing",city);
 
                 mJobPost.child(id).setValue(postJobData);
-                FirebaseDatabase.getInstance().getReference().child(auth.getUid()).child(id).setValue(id);
-                Toast.makeText(getApplicationContext(),"successfull",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Job Posted Successfully",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(), RecruiterDashboard.class));
                 finish();
 
