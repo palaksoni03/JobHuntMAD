@@ -1,19 +1,17 @@
 package com.example.jobhunt.Recruiter;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.jobhunt.Adapter.PostJobAdapter;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.jobhunt.Adapter.ReceiveAppliationAdapter;
 import com.example.jobhunt.Login;
-import com.example.jobhunt.Model.PostJobData;
 import com.example.jobhunt.Model.ReceiveApplicationData;
 import com.example.jobhunt.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -31,6 +29,7 @@ public class ReceiveApplication extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("Receive Application");
         setContentView(R.layout.activity_receive_application);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -58,18 +57,16 @@ public class ReceiveApplication extends AppCompatActivity {
                         return true;
                     case R.id.receive:
                         return true;
-                    case R.id.selected:
-                        startActivity(new Intent(getApplicationContext(), RecruiterSelected.class));
+                    case R.id.rprofile:
+                        startActivity(new Intent(getApplicationContext(),RecruiterProfile.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), RecruiterProfile.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
+                 }
                 return false;
             }
         });
+
+
 
     }
 

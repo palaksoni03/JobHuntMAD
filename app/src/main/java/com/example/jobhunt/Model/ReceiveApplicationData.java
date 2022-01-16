@@ -13,20 +13,18 @@ public class ReceiveApplicationData {
     String salary;
     String company;
     String city;
-    String EducationDec;
+    String applicanteducationdesc;
+    String applicantjobrole;
+    String applicantcompany;
+    String applicantjobdescription;
+    String applicantexperience;
     String uid;
     String pushid;
-    String profile;
-    String CompanyName;
-    String JobDescription;
-    int Experience;
-
-
 
     public ReceiveApplicationData() {
     }
 
-    public ReceiveApplicationData(String fullname, String email, String password, String phoneno, String date, String title, String description, String skill, String salary, String company, String city, String educationDec, String uid, String pushid, String profile, String companyName, String jobDescription, int experience) {
+    public ReceiveApplicationData(String fullname, String email, String password, String phoneno, String date, String title, String description, String skill, String salary, String company, String city, String applicanteducationdesc, String applicantjobrole, String applicantcompany, String applicantjobdescription, String applicantexperience, String uid, String pushid) {
         this.fullname = fullname;
         this.email = email;
         this.password = password;
@@ -38,71 +36,14 @@ public class ReceiveApplicationData {
         this.salary = salary;
         this.company = company;
         this.city = city;
-        EducationDec = educationDec;
+        this.applicanteducationdesc = applicanteducationdesc;
+        this.applicantjobrole = applicantjobrole;
+        this.applicantcompany = applicantcompany;
+        this.applicantjobdescription = applicantjobdescription;
+        this.applicantexperience = applicantexperience;
         this.uid = uid;
         this.pushid = pushid;
-        this.profile = profile;
-        CompanyName = companyName;
-        JobDescription = jobDescription;
-        Experience = experience;
     }
-
-    public String getProfile() {
-        return profile;
-    }
-
-    public void setProfile(String profile) {
-        this.profile = profile;
-    }
-
-    public String getCompanyName() {
-        return CompanyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        CompanyName = companyName;
-    }
-
-    public String getJobDescription() {
-        return JobDescription;
-    }
-
-    public void setJobDescription(String jobDescription) {
-        JobDescription = jobDescription;
-    }
-
-    public int getExperience() {
-        return Experience;
-    }
-
-    public void setExperience(int experience) {
-        Experience = experience;
-    }
-
-    public String getEducationDec() {
-        return EducationDec;
-    }
-
-    public void setEducationDec(String educationDec) {
-        EducationDec = educationDec;
-    }
-
-    public String getPushid() {
-        return pushid;
-    }
-
-    public void setPushid(String pushid) {
-        this.pushid = pushid;
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-
 
     public String getFullname() {
         return fullname;
@@ -190,5 +131,61 @@ public class ReceiveApplicationData {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getApplicanteducationdesc() {
+        return applicanteducationdesc;
+    }
+
+    public void setApplicanteducationdesc(String applicanteducationdesc) {
+        this.applicanteducationdesc = applicanteducationdesc;
+    }
+
+    public String getApplicantjobrole() {
+        return applicantjobrole;
+    }
+
+    public void setApplicantjobrole(String applicantjobrole) {
+        this.applicantjobrole = applicantjobrole;
+    }
+
+    public String getApplicantcompany() {
+        return applicantcompany;
+    }
+
+    public void setApplicantcompany(String applicantcompany) {
+        this.applicantcompany = applicantcompany;
+    }
+
+    public String getApplicantjobdescription() {
+        return applicantjobdescription;
+    }
+
+    public void setApplicantjobdescription(String applicantjobdescription) {
+        this.applicantjobdescription = applicantjobdescription;
+    }
+
+    public String getApplicantexperience() {
+        return applicantexperience;
+    }
+
+    public void setApplicantexperience(String applicantexperience) {
+        this.applicantexperience = applicantexperience;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getPushid() {
+        return pushid;
+    }
+
+    public void setPushid(String pushid) {
+        this.pushid = pushid;
     }
 }

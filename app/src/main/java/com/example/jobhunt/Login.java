@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -39,6 +37,35 @@ public class Login extends AppCompatActivity {
         email = findViewById(R.id.username);
         password = findViewById(R.id.password);
 
+        if (auth.getCurrentUser()!=null){
+
+            FirebaseUser mUser = auth.getCurrentUser();
+            String uid = mUser.getUid();
+            firebaseDatabase.getReference().child("User").child(uid).child("userTypes").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    int userTypes = snapshot.getValue(Integer.class);
+                    if (userTypes == 0){
+                        Intent in = new Intent(Login.this,ApplicantDashboard.class);
+                        startActivity(in);
+                    }
+                    if (userTypes == 1){
+                        Intent in = new Intent(Login.this,RecruiterDashboard.class);
+                        startActivity(in);
+                    }
+                    if (userTypes == 2){
+                        Intent in = new Intent(Login.this,AdminDashBoard.class);
+                        startActivity(in);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
 
 
     }

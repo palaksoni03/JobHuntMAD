@@ -1,16 +1,16 @@
 package com.example.jobhunt.Recruiter;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jobhunt.Adapter.PostJobAdapter;
 import com.example.jobhunt.Login;
@@ -35,6 +35,7 @@ public class RecruiterDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recruiter_dashboard);
+        getSupportActionBar().setTitle("Recruiter Dashboard");
         fabBtn = findViewById(R.id.fab_add);
         recyclerView = findViewById(R.id.recycler_job_post_id);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -56,7 +57,6 @@ public class RecruiterDashboard extends AppCompatActivity {
             }
         });
 
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.rbottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -69,19 +69,14 @@ public class RecruiterDashboard extends AppCompatActivity {
                         return true;
                     case R.id.home:
                         return true;
-                    case R.id.selected:
-                        startActivity(new Intent(getApplicationContext(), RecruiterSelected.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.profile:
+                    case R.id.rprofile:
                         startActivity(new Intent(getApplicationContext(), RecruiterProfile.class));
                         overridePendingTransition(0,0);
                         return true;
-                }
+                    }
                 return false;
             }
         });
-
     }
 
     @Override
@@ -97,21 +92,47 @@ public class RecruiterDashboard extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.logout,menu);
-        MenuItem logoutitem = menu.findItem(R.id.lagout);
-        logoutitem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+        getMenuInflater().inflate(R.menu.search,menu);
+        getMenuInflater().inflate(R.menu.logout, menu);
+        MenuItem logout = menu.findItem(R.id.lagout);
+        logout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
+            public boolean onMenuItemClick(MenuItem item) {
                 auth.signOut();
                 startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
                 return false;
             }
         });
+        MenuItem item = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) item.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                txtSearch(s);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                txtSearch(s);
+                return false;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
+
     }
 
-    public void ReceiveApplication(View view) {
-        startActivity(new Intent(getApplicationContext(),ReceiveApplication.class));
+    private void txtSearch(String str){
+
+        FirebaseRecyclerOptions<PostJobData> options =
+                new FirebaseRecyclerOptions.Builder<PostJobData>()
+                        .setQuery(mJobPost.orderByChild("title").startAt(str).endAt(str+"~"), PostJobData.class)
+                        .build();
+        postJobAdapter = new PostJobAdapter(options);
+        postJobAdapter.startListening();
+        recyclerView.setAdapter(postJobAdapter);
+
     }
 }

@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/job_city"
                 android:text="@string/City"
+                android:drawableLeft="@drawable/ic_baseline_location_on_24"
                 android:layout_toRightOf="@+id/job_title"
                 android:textStyle="italic"
                 android:textColor="@color/black"
@@ -58,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/descriptiontxt"
                 android:text="@string/Description"
+                android:drawableLeft="@drawable/ic_baseline_description_24"
                 android:textStyle="italic"
                 android:textColor="@color/black"
                 android:layout_below="@id/job_city"
@@ -71,90 +73,131 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/applicantname"
-                android:text="@string/Name"
-                android:textStyle="italic"
-                android:textColor="@color/black"
-                android:layout_below="@id/line"
-                android:layout_marginLeft="10dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/applicantphoneno"
-                android:text="@string/phonenumber"
-                android:textStyle="italic"
-                android:textColor="@color/black"
-                android:layout_below="@id/applicantname"
-                android:layout_marginLeft="10dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/applicantemail"
-                android:text="@string/Emailid"
-                android:textStyle="italic"
-                android:textColor="@color/black"
-                android:layout_below="@id/applicantphoneno"
-                android:layout_marginLeft="10dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/applicantedu_dec"
-                android:text="@string/EducationDec"
-                android:textStyle="italic"
-                android:textColor="#040404"
-                android:layout_below="@id/applicantemail"
-                android:layout_marginLeft="10dp"/>
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_below="@+id/applicantedu_dec"
+                android:layout_below="@+id/line"
+                android:orientation="vertical"
+                android:background="#C9DDD3"
                 android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_width="match_parent"
+
+
+                    <TextView
+                        android:id="@+id/applicantname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/line"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/Name"
+                        android:drawableLeft="@drawable/user"
+                        android:paddingLeft="10dp"
+                        android:drawablePadding="10dp"
+
+                        android:textColor="@color/black"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/applicantphoneno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/applicantname"
+                        android:drawableLeft="@drawable/mobile_number"
+                        android:paddingLeft="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/phonenumber"
+                        android:textColor="@color/black"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/applicantemail"
+                        android:layout_width="wrap_content"
+                        android:drawableLeft="@drawable/email"
+                        android:paddingLeft="10dp"
+                        android:drawablePadding="10dp"
+
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/applicantphoneno"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/Emailid"
+                        android:textColor="@color/black"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/applicanteducationdesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_school_24"
+                        android:paddingLeft="10dp"
+                        android:drawablePadding="10dp"
+
+                        android:layout_below="@id/applicantemail"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/EducationDec"
+                        android:textColor="#040404"
+                        android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#808080"
-                    android:orientation="vertical">
+                    android:drawableLeft="@drawable/ic_baseline_work_24"
+                    android:paddingLeft="10dp"
+                    android:drawablePadding="10dp"
+
+                    android:id="@+id/applicantjobrole"
+                    android:text="applicantjobrole"
+                    android:textStyle="italic"
+                    android:textColor="@color/black"
+                    android:layout_below="@id/line"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_baseline_work_24"
+                    android:paddingLeft="10dp"
+                    android:drawablePadding="10dp"
+                    android:id="@+id/applicantcompany"
+                    android:text="applicantcompany"
+                    android:textStyle="italic"
+                    android:textColor="@color/black"
+                    android:layout_below="@id/applicantname"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/applicantjobdescription"
+                    android:text="applicantjobdescription"
+                    android:drawableLeft="@drawable/ic_baseline_edit_road_24"
+                    android:paddingLeft="10dp"
+                    android:drawablePadding="10dp"
+
+                    android:textStyle="italic"
+                    android:textColor="@color/black"
+                    android:layout_below="@id/applicantphoneno"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/applicantexperience"
+                    android:drawableLeft="@drawable/job_role"
+                    android:paddingLeft="10dp"
+                    android:drawablePadding="10dp"
+
+                    android:text="applicantexperience"
+                    android:textStyle="italic"
+                    android:textColor="#040404"
+                    android:layout_marginLeft="10dp"/>
 
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Experience" />
-                    <TextView
-                        android:id="@+id/profile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="profile" />
-                    <TextView
-                        android:id="@+id/CompanyName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="CompanyName" />
-                    <TextView
-                        android:id="@+id/JobDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="JobDescription" />
-                    <TextView
-                        android:id="@+id/Experience"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Experience" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
+            </LinearLayout>
 
 
         </RelativeLayout>
 
-
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -173,8 +216,10 @@
             android:text="Reject"
             android:layout_margin="10dp"
             android:layout_weight="1"
+            android:backgroundTint="@color/bgBottomNavigation"
             android:id="@+id/rejectjob"/>
     </LinearLayout>
+
 </LinearLayout>
 
     </androidx.cardview.widget.CardView>

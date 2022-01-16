@@ -1,17 +1,14 @@
 package com.example.jobhunt.Admin;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.jobhunt.Admin.AdminApplicant;
-import com.example.jobhunt.Admin.AdminJobPost;
-import com.example.jobhunt.Admin.AdminRecruiter;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.jobhunt.Login;
 import com.example.jobhunt.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +20,7 @@ public class AdminDashBoard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dash_board);
+        getSupportActionBar().setTitle("Admin Dashboard");
     }
 
 

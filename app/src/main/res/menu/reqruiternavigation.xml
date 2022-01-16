@@ -12,13 +12,7 @@
         android:title="receive" />
 
     <item
-        android:id="@+id/selected"
-        android:icon="@drawable/ic_selected"
-        android:title="Selected" />
-
-    <item
-        android:id="@+id/profile"
+        android:id="@+id/rprofile"
         android:icon="@drawable/about"
-        android:title="@string/title_profile" />
-
+        android:title="Profile" />
 </menu>

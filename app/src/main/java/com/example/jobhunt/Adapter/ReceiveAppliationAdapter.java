@@ -16,7 +16,6 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
@@ -44,11 +43,11 @@ public class ReceiveAppliationAdapter extends FirebaseRecyclerAdapter<ReceiveApp
         holder.applicantname.setText(model.getFullname());
         holder.applicantphoneno.setText(model.getPhoneno());
         holder.applicantemail.setText(model.getEmail());
-        holder.applicantedu.setText(model.getEducationDec());
-        holder.profile.setText(model.getProfile());
-        holder.CompanyName.setText(model.getCompany());
-        holder.JobDescription.setText(model.getJobDescription());
-        holder.Experience.setText(model.getExperience());
+        holder.applicanteducationdesc.setText(model.getApplicanteducationdesc());
+        holder.applicantjobrole.setText(model.getApplicantjobrole());
+        holder.applicantcompany.setText(model.getApplicantcompany());
+        holder.applicantjobdescription.setText(model.getApplicantjobdescription());
+        holder.applicantexperience.setText(model.getApplicantexperience());
         holder.Accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,12 +58,12 @@ public class ReceiveAppliationAdapter extends FirebaseRecyclerAdapter<ReceiveApp
                 FirebaseDatabase.getInstance().getReference().child("Applied Status").child(model.getUid()).child(model.getPushid()).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(holder.applicantname.getContext(),"data is updated",Toast.LENGTH_LONG).show();
+                        Toast.makeText(holder.applicantname.getContext(),"Application is Accepted  "+model.getFullname(),Toast.LENGTH_LONG).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(holder.applicantname.getContext(),"Error while updating",Toast.LENGTH_LONG).show();
+                        //Toast.makeText(holder.applicantname.getContext(),"Error while updating",Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -81,7 +80,7 @@ public class ReceiveAppliationAdapter extends FirebaseRecyclerAdapter<ReceiveApp
                 FirebaseDatabase.getInstance().getReference().child("Applied Status").child(model.getUid()).child(model.getPushid()).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(holder.applicantname.getContext(),"data is updated",Toast.LENGTH_LONG).show();
+                        Toast.makeText(holder.applicantname.getContext(),"Application Rejected  "+model.getFullname(),Toast.LENGTH_LONG).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -99,13 +98,14 @@ public class ReceiveAppliationAdapter extends FirebaseRecyclerAdapter<ReceiveApp
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.receive_application_item,parent,false);
-        return new com.example.jobhunt.Adapter.ReceiveAppliationAdapter.myViewHolder(view);
+        return new myViewHolder(view);
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder{
 
         TextView Company,city,jobtitle,des,applicantname,applicantphoneno,
-                applicantemail,applicantedu,profile,CompanyName,JobDescription,Experience ;
+                applicantemail,applicanteducationdesc,applicantjobrole,applicantcompany,
+                applicantjobdescription,applicantexperience;
         Button Accept,Reject;
 
         public myViewHolder(@NonNull View itemView) {
@@ -117,11 +117,11 @@ public class ReceiveAppliationAdapter extends FirebaseRecyclerAdapter<ReceiveApp
             applicantname = itemView.findViewById(R.id.applicantname);
             applicantphoneno = itemView.findViewById(R.id.applicantphoneno);
             applicantemail = itemView.findViewById(R.id.applicantemail);
-            applicantedu = itemView.findViewById(R.id.applicantedu_dec);
-            profile = itemView.findViewById(R.id.profile);
-            CompanyName = itemView.findViewById(R.id.CompanyName);
-            JobDescription = itemView.findViewById(R.id.JobDescription);
-            Experience = itemView.findViewById(R.id.Experience);
+            applicanteducationdesc = itemView.findViewById(R.id.applicanteducationdesc);
+            applicantjobrole = itemView.findViewById(R.id.applicantjobrole);
+            applicantcompany = itemView.findViewById(R.id.applicantcompany);
+            applicantjobdescription = itemView.findViewById(R.id.applicantjobdescription);
+            applicantexperience = itemView.findViewById(R.id.applicantexperience);
             Accept = itemView.findViewById(R.id.acceptjob);
             Reject = itemView.findViewById(R.id.rejectjob);
 

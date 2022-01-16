@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
@@ -27,7 +28,7 @@ import com.orhanobut.dialogplus.ViewHolder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PostJobAdapter extends FirebaseRecyclerAdapter<PostJobData, com.example.jobhunt.Adapter.PostJobAdapter.myViewHolder> {
+public class PostJobAdapter extends FirebaseRecyclerAdapter<PostJobData, PostJobAdapter.myViewHolder> {
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
@@ -38,12 +39,16 @@ public class PostJobAdapter extends FirebaseRecyclerAdapter<PostJobData, com.exa
         super(options);
     }
     @Override
-    protected void onBindViewHolder(@NonNull com.example.jobhunt.Adapter.PostJobAdapter.myViewHolder holder, int position, @NonNull PostJobData model) {
+    protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull PostJobData model) {
         holder.title.setText(model.getTitle());
         holder.description.setText(model.getDescription());
         holder.skill.setText(model.getSkill());
         holder.salary.setText(model.getSalary());
         holder.date.setText(model.getDate());
+        holder.company.setText(model.getCompany());
+        holder.city.setText(model.getCity());
+        holder.jobtypes.setText(model.getJobtypes());
+        holder.schedule.setText(model.getSchedule());
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,15 +57,24 @@ public class PostJobAdapter extends FirebaseRecyclerAdapter<PostJobData, com.exa
                         .setExpanded(true,1500)
                         .create();
                 View view1 = dialogPlus.getHolderView();
-                EditText title = view1.findViewById(R.id.titleupdate);
-                EditText des = view1.findViewById(R.id.desupdate);
-                EditText skill = view1.findViewById(R.id.skillupdate);
-                EditText salary = view1.findViewById(R.id.salaryupdate);
+                TextInputEditText title = view1.findViewById(R.id.titleupdate);
+                TextInputEditText des = view1.findViewById(R.id.desupdate);
+                TextInputEditText skill = view1.findViewById(R.id.skillupdate);
+                TextInputEditText salary = view1.findViewById(R.id.salaryupdate);
+                TextInputEditText companyname = view1.findViewById(R.id.companyupdate);
+                TextInputEditText jobtypes = view1.findViewById(R.id.jobtypesupdate);
+                TextInputEditText schedule = view1.findViewById(R.id.scheduleupdate);
+                TextInputEditText city = view1.findViewById(R.id.cityupdate);
+
                 Button btnUpdate = view1.findViewById(R.id.updatebtn);
                 title.setText(model.getTitle());
                 des.setText(model.getDescription());
                 skill.setText(model.getSkill());
                 salary.setText(model.getSalary());
+                companyname.setText(model.getCompany());
+                jobtypes.setText(model.getJobtypes());
+                schedule.setText(model.getSchedule());
+                city.setText(model.getCity());
                 dialogPlus.show();
                 btnUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -70,6 +84,11 @@ public class PostJobAdapter extends FirebaseRecyclerAdapter<PostJobData, com.exa
                         map.put("description",des.getText().toString());
                         map.put("skill",skill.getText().toString());
                         map.put("salary",salary.getText().toString());
+                        map.put("company",companyname.getText().toString());
+                        map.put("jobtypes",jobtypes.getText().toString());
+                        map.put("schedule",schedule.getText().toString());
+                        map.put("city",city.getText().toString());
+
                         FirebaseDatabase.getInstance().getReference().child("Job Post").child(getRef(position).getKey()).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
@@ -112,13 +131,13 @@ public class PostJobAdapter extends FirebaseRecyclerAdapter<PostJobData, com.exa
     }
     @NonNull
     @Override
-    public com.example.jobhunt.Adapter.PostJobAdapter.myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_job_item,parent,false);
-        return new com.example.jobhunt.Adapter.PostJobAdapter.myViewHolder(view);
+        return new myViewHolder(view);
     }
     public class myViewHolder extends RecyclerView.ViewHolder{
-        TextView title,description, skill,salary,date;
-        Button btnDelete,btnEdit;
+        TextView title,description, skill,salary,date,company,city,jobtypes,schedule;
+        LinearLayout btnDelete,btnEdit;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.titletxt);
@@ -126,6 +145,10 @@ public class PostJobAdapter extends FirebaseRecyclerAdapter<PostJobData, com.exa
             skill = itemView.findViewById(R.id.skilltxt);
             salary = itemView.findViewById(R.id.salarytxt);
             date = itemView.findViewById(R.id.datetxt);
+            company = itemView.findViewById(R.id.companytxt);
+            city = itemView.findViewById(R.id.locationtxt);
+            jobtypes = itemView.findViewById(R.id.job_jobtypes);
+            schedule = itemView.findViewById(R.id.job_schedule);
             btnEdit = itemView.findViewById(R.id.editbtn);
             btnDelete = itemView.findViewById(R.id.deletebtn);
         }

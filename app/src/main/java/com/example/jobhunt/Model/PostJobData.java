@@ -9,15 +9,17 @@ public class PostJobData {
     String date;
     String pushid;
     String company;
+     String city;
     String status;
-    String city;
+    String jobtypes;
+    String schedule;
 
     public PostJobData() {
 
 
     }
 
-    public PostJobData(String title, String description, String skill, String salary, String id, String date, String pushid, String company, String status, String city) {
+    public PostJobData(String title, String description, String skill, String salary, String id, String date, String pushid, String company, String city, String status,  String jobtypes, String schedule) {
         this.title = title;
         this.description = description;
         this.skill = skill;
@@ -28,40 +30,9 @@ public class PostJobData {
         this.company = company;
         this.city = city;
         this.status = status;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getPushid() {
-        return pushid;
-    }
-
-    public void setPushid(String pushid) {
-        this.pushid = pushid;
-    }
-
+        this.jobtypes = jobtypes;
+        this.schedule = schedule;
+       }
 
     public String getTitle() {
         return title;
@@ -110,4 +81,55 @@ public class PostJobData {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public String getPushid() {
+        return pushid;
+    }
+
+    public void setPushid(String pushid) {
+        this.pushid = pushid;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
+
+    public String getJobtypes() {
+        return jobtypes;
+    }
+
+    public void setJobtypes(String jobtypes) {
+        this.jobtypes = jobtypes;
+    }
+
+    public String getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
+    }
+
 }

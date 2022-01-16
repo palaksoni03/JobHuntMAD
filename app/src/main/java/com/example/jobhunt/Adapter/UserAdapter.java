@@ -33,14 +33,19 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Data, UserAdapter.myVie
         holder.fullname.setText(model.getFullname());
         holder.email.setText(model.getEmail());
         holder.phoneno.setText(model.getPhoneno());
-        holder.date.setText(model.getDate());
+        holder.date.setText("Created Account  "+model.getDate());
+        holder.applicantjobrole.setText(model.getApplicantjobrole());
+        holder.applicantcompany.setText("Company : "+model.getApplicantcompany());
+        holder.applicantjobdescription.setText("Responsibility : "+model.getApplicantjobdescription());
+        holder.applicantexperience.setText("Experience : "+model.getApplicantexperience()+" year");
+        holder.applicanteducationdesc.setText("Education : "+model.getApplicanteducationdesc());
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(holder.fullname.getContext());
                 builder.setTitle("Are you sure");
-                builder.setMessage("Deleted data cann't be undo");
-                builder.setMessage("deleted data cann't be undo");
+                builder.setMessage("Deleted data can't be undo");
+                builder.setMessage("deleted data can't be undo");
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -61,17 +66,22 @@ public class UserAdapter extends FirebaseRecyclerAdapter<Data, UserAdapter.myVie
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.applicant_item,parent,false);
-        return new UserAdapter.myViewHolder(view);
+        return new myViewHolder(view);
     }
     public class myViewHolder extends RecyclerView.ViewHolder{
-        TextView  fullname, email,phoneno ,date;
-        Button delete;
+        TextView  fullname, email,phoneno ,date, delete,applicanteducationdesc,applicantjobrole,applicantcompany,applicantjobdescription,applicantexperience;
+       // Button delete;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             fullname = itemView.findViewById(R.id.fullnameap);
             email = itemView.findViewById(R.id.emailap);
             phoneno = itemView.findViewById(R.id.phonenoap);
             date = itemView.findViewById(R.id.dateap);
+            applicanteducationdesc = itemView.findViewById(R.id.applicanteducationdesc);
+            applicantjobrole = itemView.findViewById(R.id.applicantjobrole);
+            applicantcompany = itemView.findViewById(R.id.applicantcompany);
+            applicantexperience = itemView.findViewById(R.id.applicantexperience);
+            applicantjobdescription = itemView.findViewById(R.id.applicantjobdescription);
             delete = itemView.findViewById(R.id.deletebtn);
         }
     }

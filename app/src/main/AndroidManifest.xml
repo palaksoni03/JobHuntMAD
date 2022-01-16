@@ -16,9 +16,6 @@
             android:name=".Recruiter.RecruiterProfile"
             android:exported="false" />
         <activity
-            android:name=".Recruiter.RecruiterSelected"
-            android:exported="false" />
-        <activity
             android:name=".Recruiter.ReceiveApplication"
             android:exported="false" />
         <activity
