@@ -25,19 +25,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/about" />
-
                 <TextView
                     android:id="@+id/proname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:layout_toRightOf="@+id/imageView"
                     android:hint="Company Name"
                     android:textSize="30sp" />
             </RelativeLayout>
